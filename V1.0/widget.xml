@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+
+
+
+    <t t-name="web_widget_image_cam.CameraDialog" owl="1">
+        <Dialog title="'Capture Image'">
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <input type="text" class="img1" style="display: none;"/>
+
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 120%;">
+                <div class="live_cam_img" t-ref="live_cam_img"/>
+            </div>
+<!--            <div class="webcam_img" t-ref="webcam_img"></div>-->
+<!--            <div class="captured-images-container"></div>-->
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img1" style="display: none;"/>
+                <img class="captured_img2" style="display: none;"/>
+                <img class="captured_img3" style="display: none;"/>
+            </div>
+
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img100" style="display: none;"/>
+            </div>
+            <t t-set-slot="footer">
+                <button class="record-video-btn" t-on-click="_captureImage">
+                    Capture Image
+                </button>
+                <button id="resetButton" t-on-click="_resetScreenshots">Reset Screenshots</button>
+                <button id="recordButton" class="record-video-btn" t-on-click="_recordVideo">Record Video</button>
+                <button id="pauseVideo" class="record-video-btn" t-on-click="_pauseVideo">Pause Video</button>
+                <button id="resumeVideo" class="record-video-btn" t-on-click="_resumeVideo">Resume Video</button>
+                <button class="record-video-btn" t-on-click="_saveMedical">
+                    Save and Close
+                </button>
+                <button class="record-video-btn" t-on-click.stop="props.close">Close</button>
+                <div class="download-links"></div>
+            </t>
+        </Dialog>
+    </t>
+
+    <t t-name="mrp_subcontracting.PickingFormController" t-inherit="web.FormView" t-inherit-mode="extension">
+        <xpath expr="//t[@t-set-slot='control-panel-additional-actions']" position="after">
+            <t t-if="props.resModel=='medical.endoscopes'">
+                <button class="btn btn-primary OpenCam" t-on-click="OpenCam" data-hotkey="c">Open Camera
+                </button>
+            </t>
+        </xpath>
+    </t>
+</templates>
+
