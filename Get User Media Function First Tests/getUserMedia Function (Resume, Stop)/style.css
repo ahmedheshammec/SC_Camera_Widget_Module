@@ -1,0 +1,11 @@
+#video {
+    border: 2px solid black;
+}
+
+#screenshots img {
+    margin: 10px;
+    border: 2px solid red;
+    width: 320px; /* Half the size of the video element */
+    height: auto; /* Maintain the aspect ratio */
+}
+
