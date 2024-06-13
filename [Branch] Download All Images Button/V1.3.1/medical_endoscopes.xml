@@ -1,0 +1,1175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="medical_endoscopes_view_search" model="ir.ui.view">
+            <field name="name">search.view.endoscope</field>
+            <field name="model">medical.endoscopes</field>
+            <field name="arch" type="xml">
+                <search string="Search Medical Endoscopes">
+                    <field name="name" string="Request Number"/>
+                    <field name="patient_id" string="Patient Name"/>
+                    <field name="doctor_id" string="Doctor"/>
+                    <field name="patient_phone" string="Patient Phone"/>
+                </search>
+            </field>
+
+        </record>
+
+        <record id="medical_endoscopes_view_tree" model="ir.ui.view">
+            <field name="name">medical.endoscopes.view.tree</field>
+            <field name="model">medical.endoscopes</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="patient_id"/>
+                    <field name="age"/>
+                    <field name="doctor_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record id="medical_endoscopes_view_form" model="ir.ui.view">
+            <field name="name">medical.endoscopes.view_form</field>
+            <field name="model">medical.endoscopes</field>
+            <field name="arch" type="xml">
+                <form string="medical_endoscopes_form" js_class="medical_endoscopes_form">
+                    <sheet>
+                        <h1>
+                            <field name="name"  />
+                        </h1>
+                        <h2>
+                            <field class="text-break" options="{'line_breaks': False}" name="patient_id"
+                                   placeholder="Select The Patient"/>
+                        </h2>
+                        <group>
+                            <group string="Doctor / nurse">
+                                <field name="doctor_id" placeholder="Doctor Name" />
+                                <field name="nurse" placeholder="Nurses"/>
+                                <field name="nurse_assistant" placeholder="Nurse Assistant"/>
+                            </group>
+                            <group string="Patient Information">
+                                <field name="date" placeholder="Date"/>
+                                <field name="id_patient" placeholder="Patient ID"/>
+                                <field name="age"/>
+                                <field name="video_url"/>
+                                <field name="birth_date" invisible="1"/>
+                                <field name="patient_phone" invisible="1"/>
+                            </group>
+                            <group string="Other information">
+                                <field name="operator" placeholder="Operator ....."/>
+                                <field name="referred_by" placeholder="Referred By ....." widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="indications" placeholder="Indications ....."/>
+                            <field name="procedures" placeholder="Procedures ....."/>
+                            <field name="medications" placeholder="Medications ....."/>
+                            <field name="findings" placeholder="Findings ....."/>
+                            <field name="conclusions" placeholder="Conclusion ....."/>
+                            <field name="recommendations" placeholder="Recommendations ....."/>
+
+
+
+                        </group>
+<!--                        <button name="download_all_images" string="Download All" type="object"/>-->
+                        <button name="dummyDownload" type="object" class="btn-primary" string="Download Image 1" icon="fa-download"/>
+
+                        <notebook>
+                            <page string="Page One">
+                                <table width="100%" dir="rtl">
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img1" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img1" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img2" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img2" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img3" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img3" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img4" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img4" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img5" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img5" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img6" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img6" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img7" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img7" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img8" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img8" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img9" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img9" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img10" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img10" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img11" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img11" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img12" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img12" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img13" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img13" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img14" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img14" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img15" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img15" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img16" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img16" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img17" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img17" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img18" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img18" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img19" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img19" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img20" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img20" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </page>
+                            <page string="Page Two">
+                                <table width="100%" dir="rtl">
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img21" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img21" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img22" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img22" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img23" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img23" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img24" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img24" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img25" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img25" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img26" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img26" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img27" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img27" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img28" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img28" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img29" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img29" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img30" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img30" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img31" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img31" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img32" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img32" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img33" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img33" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img34" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img34" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img35" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img35" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img36" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img36" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img37" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img37" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img38" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img38" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img39" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img39" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img40" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img40" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </page>
+                            <page string="Page Three">
+                                <table width="100%" dir="rtl">
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img41" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img41" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img42" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img42" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img43" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img43" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img44" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img44" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img45" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img45" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img46" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img46" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img47" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img47" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img48" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img48" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img49" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img49" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img50" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img50" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img51" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img51" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img52" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img52" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img53" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img53" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img54" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img54" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img55" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img55" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img56" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img56" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img57" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img57" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img58" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img58" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img59" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img59" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img60" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img60" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </page>
+                            <page string="Page Four">
+                                <table width="100%" dir="rtl">
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img61" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img61" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img62" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img62" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img63" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img63" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img64" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img64" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img65" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img65" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img66" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img66" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img67" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img67" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img68" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img68" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img69" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img69" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img70" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img70" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img71" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img71" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img72" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img72" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img73" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img73" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img74" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img74" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img75" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img75" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img76" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img76" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img77" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img77" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img78" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img78" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img79" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img79" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img80" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img80" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </page>
+                            <page string="Page Five">
+                                <table width="100%" dir="rtl">
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img81" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img81" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img82" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img82" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img83" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img83" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img84" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img84" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img85" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img85" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img86" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img86" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img87" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img87" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img88" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img88" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img89" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img89" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img90" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img90" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img91" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img91" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img92" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img92" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img93" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img93" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img94" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img94" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img95" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img95" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img96" class="oe_inline" force_save="1"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img96" class="oe_inline" force_save="1"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img97" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img97" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img98" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img98" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img99" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img99" class="oe_inline"
+                                            />
+                                        </td>
+                                        <td width="15%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="img100" class="oe_inline"
+                                                   widget="image"/>
+                                        </td>
+                                        <td width="5%"
+                                            style="vertical-align:center;max-height:30px;text-align:center;font-size:16px">
+                                            <field name="is_img100" class="oe_inline"
+                                            />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                    <footer>
+                        <button string="Open Camera" class="btn-primary" name="open_camera" type="button"/>
+                    </footer>
+
+                </form>
+
+            </field>
+        </record>
+
+
+
+
+
+
+
+        <record id="medical_endoscopes_action" model="ir.actions.act_window">
+            <field name="name">Medical Endoscopes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">medical.endoscopes</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="medical_endoscopes_menu" name="Medical"
+                  web_icon="web_widget_image_cam,static/description/icon.png"/>
+
+
+        <menuitem id="medical_endoscopes_new_menu" name="Medical Endoscopes"
+                  parent="medical_endoscopes_menu"
+                  action="medical_endoscopes_action"
+                  sequence="1"/>
+
+
+    </data>
+</odoo>
