@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+
+
+
+    <t t-name="web_widget_image_cam.CameraDialog" owl="1">
+        <Dialog title="'Capture Image'">
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <input type="text" class="img1" style="display: none;"/>
+                <input type="text" class="img2" style="display: none;"/>
+                <input type="text" class="img3" style="display: none;"/>
+                <input type="text" class="img4" style="display: none;"/>
+                <input type="text" class="img5" style="display: none;"/>
+                <input type="text" class="img6" style="display: none;"/>
+                <input type="text" class="img7" style="display: none;"/>
+                <input type="text" class="img8" style="display: none;"/>
+                <input type="text" class="img9" style="display: none;"/>
+                <input type="text" class="img10" style="display: none;"/>
+                <input type="text" class="img11" style="display: none;"/>
+                <input type="text" class="img12" style="display: none;"/>
+                <input type="text" class="img13" style="display: none;"/>
+                <input type="text" class="img14" style="display: none;"/>
+                <input type="text" class="img15" style="display: none;"/>
+                <input type="text" class="img16" style="display: none;"/>
+                <input type="text" class="img17" style="display: none;"/>
+                <input type="text" class="img18" style="display: none;"/>
+                <input type="text" class="img19" style="display: none;"/>
+                <input type="text" class="img20" style="display: none;"/>
+                <input type="text" class="img21" style="display: none;"/>
+                <input type="text" class="img22" style="display: none;"/>
+                <input type="text" class="img23" style="display: none;"/>
+                <input type="text" class="img24" style="display: none;"/>
+                <input type="text" class="img25" style="display: none;"/>
+                <input type="text" class="img26" style="display: none;"/>
+                <input type="text" class="img27" style="display: none;"/>
+                <input type="text" class="img28" style="display: none;"/>
+                <input type="text" class="img29" style="display: none;"/>
+                <input type="text" class="img30" style="display: none;"/>
+                <input type="text" class="img31" style="display: none;"/>
+                <input type="text" class="img32" style="display: none;"/>
+                <input type="text" class="img33" style="display: none;"/>
+                <input type="text" class="img34" style="display: none;"/>
+                <input type="text" class="img35" style="display: none;"/>
+                <input type="text" class="img36" style="display: none;"/>
+                <input type="text" class="img37" style="display: none;"/>
+                <input type="text" class="img38" style="display: none;"/>
+                <input type="text" class="img39" style="display: none;"/>
+                <input type="text" class="img40" style="display: none;"/>
+                <input type="text" class="img41" style="display: none;"/>
+                <input type="text" class="img42" style="display: none;"/>
+                <input type="text" class="img43" style="display: none;"/>
+                <input type="text" class="img44" style="display: none;"/>
+                <input type="text" class="img45" style="display: none;"/>
+                <input type="text" class="img46" style="display: none;"/>
+                <input type="text" class="img47" style="display: none;"/>
+                <input type="text" class="img48" style="display: none;"/>
+                <input type="text" class="img49" style="display: none;"/>
+                <input type="text" class="img50" style="display: none;"/>
+                <input type="text" class="img51" style="display: none;"/>
+                <input type="text" class="img52" style="display: none;"/>
+                <input type="text" class="img53" style="display: none;"/>
+                <input type="text" class="img54" style="display: none;"/>
+                <input type="text" class="img55" style="display: none;"/>
+                <input type="text" class="img56" style="display: none;"/>
+                <input type="text" class="img57" style="display: none;"/>
+                <input type="text" class="img58" style="display: none;"/>
+                <input type="text" class="img59" style="display: none;"/>
+                <input type="text" class="img60" style="display: none;"/>
+                <input type="text" class="img61" style="display: none;"/>
+                <input type="text" class="img62" style="display: none;"/>
+                <input type="text" class="img63" style="display: none;"/>
+                <input type="text" class="img64" style="display: none;"/>
+                <input type="text" class="img65" style="display: none;"/>
+                <input type="text" class="img66" style="display: none;"/>
+                <input type="text" class="img67" style="display: none;"/>
+                <input type="text" class="img68" style="display: none;"/>
+                <input type="text" class="img69" style="display: none;"/>
+                <input type="text" class="img70" style="display: none;"/>
+                <input type="text" class="img71" style="display: none;"/>
+                <input type="text" class="img72" style="display: none;"/>
+                <input type="text" class="img73" style="display: none;"/>
+                <input type="text" class="img74" style="display: none;"/>
+                <input type="text" class="img75" style="display: none;"/>
+                <input type="text" class="img76" style="display: none;"/>
+                <input type="text" class="img77" style="display: none;"/>
+                <input type="text" class="img78" style="display: none;"/>
+                <input type="text" class="img79" style="display: none;"/>
+                <input type="text" class="img80" style="display: none;"/>
+                <input type="text" class="img81" style="display: none;"/>
+                <input type="text" class="img82" style="display: none;"/>
+                <input type="text" class="img83" style="display: none;"/>
+                <input type="text" class="img84" style="display: none;"/>
+                <input type="text" class="img85" style="display: none;"/>
+                <input type="text" class="img86" style="display: none;"/>
+                <input type="text" class="img87" style="display: none;"/>
+                <input type="text" class="img88" style="display: none;"/>
+                <input type="text" class="img89" style="display: none;"/>
+                <input type="text" class="img90" style="display: none;"/>
+                <input type="text" class="img91" style="display: none;"/>
+                <input type="text" class="img92" style="display: none;"/>
+                <input type="text" class="img93" style="display: none;"/>
+                <input type="text" class="img94" style="display: none;"/>
+                <input type="text" class="img95" style="display: none;"/>
+                <input type="text" class="img96" style="display: none;"/>
+                <input type="text" class="img97" style="display: none;"/>
+                <input type="text" class="img98" style="display: none;"/>
+                <input type="text" class="img99" style="display: none;"/>
+                <input type="text" class="img100" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 120%;">
+                <div class="live_cam_img" t-ref="live_cam_img"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img1" style="display: none;"/>
+                <img class="captured_img2" style="display: none;"/>
+                <img class="captured_img3" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img4" style="display: none;"/>
+                <img class="captured_img5" style="display: none;"/>
+                <img class="captured_img6" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img7" style="display: none;"/>
+                <img class="captured_img8" style="display: none;"/>
+                <img class="captured_img9" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img10" style="display: none;"/>
+                <img class="captured_img11" style="display: none;"/>
+                <img class="captured_img12" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img13" style="display: none;"/>
+                <img class="captured_img14" style="display: none;"/>
+                <img class="captured_img15" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img16" style="display: none;"/>
+                <img class="captured_img17" style="display: none;"/>
+                <img class="captured_img18" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img19" style="display: none;"/>
+                <img class="captured_img20" style="display: none;"/>
+                <img class="captured_img21" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img22" style="display: none;"/>
+                <img class="captured_img23" style="display: none;"/>
+                <img class="captured_img24" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img25" style="display: none;"/>
+                <img class="captured_img26" style="display: none;"/>
+                <img class="captured_img27" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img28" style="display: none;"/>
+                <img class="captured_img29" style="display: none;"/>
+                <img class="captured_img30" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img31" style="display: none;"/>
+                <img class="captured_img32" style="display: none;"/>
+                <img class="captured_img33" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img34" style="display: none;"/>
+                <img class="captured_img35" style="display: none;"/>
+                <img class="captured_img36" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img37" style="display: none;"/>
+                <img class="captured_img38" style="display: none;"/>
+                <img class="captured_img39" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img40" style="display: none;"/>
+                <img class="captured_img41" style="display: none;"/>
+                <img class="captured_img42" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img43" style="display: none;"/>
+                <img class="captured_img44" style="display: none;"/>
+                <img class="captured_img45" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img46" style="display: none;"/>
+                <img class="captured_img47" style="display: none;"/>
+                <img class="captured_img48" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img49" style="display: none;"/>
+                <img class="captured_img50" style="display: none;"/>
+                <img class="captured_img51" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img52" style="display: none;"/>
+                <img class="captured_img53" style="display: none;"/>
+                <img class="captured_img54" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img55" style="display: none;"/>
+                <img class="captured_img56" style="display: none;"/>
+                <img class="captured_img57" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img58" style="display: none;"/>
+                <img class="captured_img59" style="display: none;"/>
+                <img class="captured_img60" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img61" style="display: none;"/>
+                <img class="captured_img62" style="display: none;"/>
+                <img class="captured_img63" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img64" style="display: none;"/>
+                <img class="captured_img65" style="display: none;"/>
+                <img class="captured_img66" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img67" style="display: none;"/>
+                <img class="captured_img68" style="display: none;"/>
+                <img class="captured_img69" style="display: none;"/>
+
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img70" style="display: none;"/>
+                <img class="captured_img71" style="display: none;"/>
+                <img class="captured_img72" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img73" style="display: none;"/>
+                <img class="captured_img74" style="display: none;"/>
+                <img class="captured_img75" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img76" style="display: none;"/>
+                <img class="captured_img77" style="display: none;"/>
+                <img class="captured_img78" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img79" style="display: none;"/>
+                <img class="captured_img80" style="display: none;"/>
+                <img class="captured_img81" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img82" style="display: none;"/>
+                <img class="captured_img83" style="display: none;"/>
+                <img class="captured_img84" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img85" style="display: none;"/>
+                <img class="captured_img86" style="display: none;"/>
+                <img class="captured_img87" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img88" style="display: none;"/>
+                <img class="captured_img89" style="display: none;"/>
+                <img class="captured_img90" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img91" style="display: none;"/>
+                <img class="captured_img92" style="display: none;"/>
+                <img class="captured_img93" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img94" style="display: none;"/>
+                <img class="captured_img95" style="display: none;"/>
+                <img class="captured_img96" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img97" style="display: none;"/>
+                <img class="captured_img98" style="display: none;"/>
+                <img class="captured_img99" style="display: none;"/>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+                <img class="captured_img100" style="display: none;"/>
+            </div>
+            <t t-set-slot="footer">
+                <button class="record-video-btn" t-on-click="_captureImage">
+                    Capture Image
+                </button>
+                <button id="recordButton" class="record-video-btn" t-on-click="_recordVideo">Record Video</button>
+                <button id="pauseVideo" class="record-video-btn" t-on-click="_pauseVideo">Pause Video</button>
+                <button id="resumeVideo" class="record-video-btn" t-on-click="_resumeVideo">Resume Video</button>
+                <button class="record-video-btn" t-on-click="_saveMedical">
+                    Save
+                </button>
+                <button class="record-video-btn" t-on-click="_closeButton">Close</button>
+                <div class="download-links"></div>
+                <div id="captured-images-container" class="captured-images-container"/>
+            </t>
+        </Dialog>
+    </t>
+    <t t-name="mrp_subcontracting.PickingFormController" t-inherit="web.FormView" t-inherit-mode="extension">
+        <xpath expr="//t[@t-set-slot='control-panel-additional-actions']" position="after">
+            <t t-if="props.resModel=='medical.endoscopes'">
+                <button class="btn btn-primary OpenCam" t-on-click="OpenCam" data-hotkey="c">Open Camera
+                </button>
+            </t>
+        </xpath>
+    </t>
+</templates>
+

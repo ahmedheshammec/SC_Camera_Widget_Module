@@ -1,0 +1,488 @@
+<odoo>
+    <data>
+        <record id="paperformat_a4_patient_report" model="report.paperformat">
+            <field name="name">custom</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">10</field>
+            <field name="margin_bottom">7</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">5</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record id="sale_order_endoscope_sale" model="ir.actions.report">
+            <field name="name">Reception patient</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">sales_doctor.report_new_endoscope</field>
+            <field name="report_file">sales_doctor.report_new_endoscope</field>
+            <field name="print_report_name">'Order %s' % (object.partner_id.name).replace('/', '')</field>
+            <field name="binding_model_id" ref="sale.model_sale_order"/>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="sales_doctor.paperformat_a4_patient_report"/>
+
+        </record>
+        <template id="report_new_endoscope">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="sales_doctor.patient_new_reception" t-lang="doc.partner_id.lang"/>
+                </t>
+            </t>
+        </template>
+
+
+        <template id="patient_new_reception">
+            <t t-call="web.basic_layout">
+                <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
+                <table border="1" style="width: 100%;padding: 15px;text-align: center;height: auto;" dir="rtl">
+                    <tr>
+                        <td>
+                            <span>اسم المريض :</span>
+                        </td>
+                        <td>
+                            <span t-field="doc.partner_id.name"/>
+                        </td>
+                        <td>الرقم الطبي :</td>
+                        <td>
+                            <span>.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>محل الاقامة :</td>
+                        <td colspan="3">
+                            <span t-field="doc.partner_id.street"/>
+                            /
+                            <span t-field="doc.partner_id.street2"/>
+                            /
+                            <span t-field="doc.partner_id.city"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>تاريخ الميلاد :</td>
+                        <td>
+                            <span t-field="doc.partner_id.birth_date"/>
+                        </td>
+                        <td>الديانه :</td>
+                        <td>
+                            <span>.</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>دكتور التحويل :</td>
+                        <td>
+                            <span>.</span>
+                        </td>
+                        <td>السن :</td>
+                        <td>
+                            <span t-field="doc.partner_id.member_age"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>النوع :</td>
+                        <td>
+                            <span t-field="doc.partner_id.gender"/>
+                        </td>
+                        <td>تاريخ الدخول :</td>
+                        <td>
+                            <span t-field="doc.date_order"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>الجنسية :</td>
+                        <td>
+                            <span t-field="doc.partner_id.nationality_country_id"/>
+                        </td>
+                        <td>رقم البطاقة :</td>
+                        <td>
+                            <span t-field="doc.partner_id.vat"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>الوظيفة :</td>
+                        <td>
+                            <span t-field="doc.partner_id.function"/>
+                        </td>
+                        <td>موبايل :</td>
+                        <td>
+                            <span t-field="doc.partner_id.phone"/>
+                            /
+                            <span t-field="doc.partner_id.mobile"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>الاميل :</td>
+                        <td>
+                            <span t-field="doc.partner_id.email"/>
+                        </td>
+                        <td>مصدر الدخول :</td>
+                        <td>
+                            <span t-field="doc.partner_id.category_id"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>نوع الدخول :</td>
+                        <td>
+                            <span t-field="doc.pricelist_id"/>
+                        </td>
+                        <td>الطبيب الاستشاري :</td>
+                        <td>
+                            <span t-field="doc.doctor_sale_id"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>شركة التأمين :</td>
+                        <td>
+                            <span t-field="doc.pricelist_id"/>
+                        </td>
+                        <td>القائمة :</td>
+                        <td>
+                            <span t-field="doc.pricelist_id"/>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="row" dir="rtl">
+                    <span>
+                        * يملئ هذا الجزء بواسطة موظف الاستقبال و يتم تسجيل البيانات علي البرنامج الخاص بتسجيل المرضي .
+                    </span>
+                </div>
+
+                <table border="1" style="width: 100%;padding: 10px;text-align: center;" dir="rtl">
+                    <tr>
+                        <td>
+                            <span>شكوي المريض</span>
+                        </td>
+                        <td colspan="3">
+
+                            <span t-if="len(doc.order_line) >= 1" t-foreach="doc.order_line" t-as="line">
+                                <t t-if="line_index &gt; 0">/</t>
+                                <span t-esc="line.product_template_id.name"/>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>الامراض المزمنة</span>
+                        </td>
+                        <td colspan="3">
+                            <span>.....</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>الامراض المزمنة</span>
+                        </td>
+                        <td colspan="3">
+                            <table style="width: 100%;text-align: center;">
+                                <thead>
+                                    <tr>
+                                        <td>
+                                            <span>سيوله</span>
+                                        </td>
+                                        <td>
+                                            <span>ضغط</span>
+                                        </td>
+                                        <td>
+                                            <span>سكر</span>
+                                        </td>
+                                        <td>
+                                            <span>قلب</span>
+                                        </td>
+                                        <td>
+                                            <span>مضادات حيوية</span>
+                                        </td>
+                                        <td>
+                                            <span>مضادات حموضة</span>
+                                        </td>
+                                        <td>
+                                            <span>مضادات للميكروب الحلزوني</span>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <span style="color:white;">.</span>
+                                        </td>
+                                        <td/>
+                                        <td/>
+                                        <td/>
+                                        <td/>
+                                        <td/>
+                                        <td>
+                                            <span style="color:white;">.</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>المناظير السابقة</span>
+                        </td>
+                        <td style="width: 2cm;">
+                            <span>لا</span>
+                        </td>
+                        <td style="width: 2cm; ">
+                            <span>نعم</span>
+                        </td>
+                        <td>
+                            فى حالة ( نعم ) تاريخ اخر منظار
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>نقل الدم</span>
+                        </td>
+                        <td>
+                            <span>لا</span>
+                        </td>
+                        <td>
+                            <span>نعم</span>
+                        </td>
+                        <td>
+                            فى حالة ( نعم ) التاريخ و السبب
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>حجز سابق بمستشفي</span>
+                        </td>
+                        <td>
+                            <span>لا</span>
+                        </td>
+                        <td>
+                            <span>نعم</span>
+                        </td>
+                        <td>
+                            فى حالة ( نعم ) التاريخ و السبب
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>قئ دموي سابق</span>
+                        </td>
+                        <td>
+                            <span>لا</span>
+                        </td>
+                        <td>
+                            <span>نعم</span>
+                        </td>
+                        <td>
+                            فى حالة ( نعم ) التاريخ و السبب
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>نزيف شرجي سابق</span>
+                        </td>
+                        <td>
+                            <span>لا</span>
+                        </td>
+                        <td>
+                            <span>نعم</span>
+                        </td>
+                        <td>
+                            فى حالة ( نعم ) التاريخ
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>منظم ضربات القلب</span>
+                        </td>
+                        <td>
+                            <span>لا</span>
+                        </td>
+                        <td>
+                            <span>نعم</span>
+                        </td>
+                        <td/>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>أسنان صناعية</span>
+                        </td>
+                        <td>
+                            <span>لا</span>
+                        </td>
+                        <td>
+                            <span>نعم</span>
+                        </td>
+                        <td/>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>الصيام</span>
+                        </td>
+                        <td>
+                            <span>لا</span>
+                        </td>
+                        <td>
+                            <span>نعم</span>
+                        </td>
+                        <td>
+                            فى حالة ( نعم ) عدد الساعات
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>التدخين</span>
+                        </td>
+                        <td>
+                            <span>لا</span>
+                        </td>
+                        <td>
+                            <span>نعم</span>
+                        </td>
+                        <td/>
+                    </tr>
+                </table>
+                <br/>
+                <div class="text-center">
+                    <span>تعليمات</span>
+                </div>
+                <div class="row" dir="rtl">
+                    <span>
+                        غير مسموح مطلقاً الإحتفاظ بمتعلقات ثمينه للمرضى أو المرافقين داخل الغرف والمركز غير مسئول عن
+                        فقدان أى متعلقات غير مسموح بها (مجوهرات – مبالغ نقديه كبيره – تليفونات محموله - ......... )
+                    </span>
+                </div>
+                <div class="text-center">
+                    <span>
+                        أقرار
+                    </span>
+                </div>
+                <div class="row" dir="rtl">
+                    <ul style="list-style-type: none; padding: 3px;">
+                        <li style="margin-bottom: 5px;">أقر بأننى اطلعت على لائحة اسعار المركز وسوف أقوم بدفع تكاليف
+                            الخدمات الطبية وغيرها المقدمه
+                            لى من قبل المركز وأتعهد بسداد أى دفعات تطلب منى. كما أتعهد بسداد كامل الحساب قبل مغادرة
+                            المريض المركز.
+                        </li>
+                        <li style="margin-bottom: 5px;">أقر بأننى على علم بعمل الأجراء خلال تفشى فيروس الكورونا
+                            بالبلاد.
+                        </li>
+                        <li>أقر بالموافقه على دخول المركز بداية لأغراض التشخيص وتلقى العلاج وفقاً للبرنامج الذى تم وضعه
+                            بواسطة الطبيب الاستشارى او أعضاء الفريق الطبى بالمركز طبقا لما تتطلبه حالتى الصحية، و ان
+                            اجراء المنظار سواء كان تشخيصى او تداخلى هو مسئولية الطبيب القائم بالمنظار مسئولية كاملة.
+                        </li>
+                        <li style="margin-bottom: 5px;">وقد شرح لي الطبيب ماهية المنظار وأسباب عمله ومضاعفاته وبدائله،
+                            ولقد سمح لي بالتساؤل عن أية
+                            معلومات عن الإجراء. وأيضاً أفوض الطبيب لعمل اللازم أثناء المنظار (ربط أو حقن دوالي المرئ
+                            والمعدة، استئصال زوائد لحمية، محاولة إيقاف النزيف، توسيع، استخدام جهاز الارجون، تركيب بالونة
+                            معدية، تركيب دعامات، أخذ عينات).
+                        </li>
+                        <li style="margin-bottom: 5px;">في حالة توسيع التضيقات، محاولات إيقاف النزيف عن طريق الحقن أو
+                            الربط أو الحرارة، إزالة
+                            اللحميات وأخذ العينات أتفهم أنه توجد فرصة صغيرة للنزف أو الانثقاب مع احتمالية التدخل الجراحي
+                            أو دخول الرعاية المركزة.
+                        </li>
+                        <li style="margin-bottom: 5px;">أتفهم أنه من الممكن أن تحدث بعض المضاعفات عند استخدام التخدير
+                            الوريدي أو الموضعي مثل التهاب
+                            الأوردة، ألم أو انتفاخ البطن، حساسية للأدوية (انخفاض ضغط الدم، هبوط حاد في الدورة الدموية،
+                            انخفاض سرعة التنفس وتوقف القلب).
+                        </li>
+                        <li style="margin-bottom: 5px;">كما أننى أقر بتوضيح وكتابة كل ما يخص حالتى الصحية من أمراض أو
+                            عدوى أو أي موانع للتخدير الكلي
+                            أو الموضعي.
+                        </li>
+                        <li style="margin-bottom: 5px;">كما أننى اتعهد بذكر تلك الموانع التي تخص التخدير الكلي أو
+                            الموضعي وأنني أتحمل مسئولية عدم
+                            الإفصاح عن تلك الموانع كتابة عند عمل أي إجراء تشخيصي أو علاجي بالمركز دون وقوع أي مسئولية
+                            على الأطباء والمركز (يتم ذكر تلك الموانع في حالة وجودها).
+                        </li>
+                    </ul>
+                </div>
+                <hr style="border;1px"/>
+                <hr style="border;1px"/>
+                <hr style="border;1px"/>
+
+                <table class="table table-borderless" style="font-size:14px;padding: 15px;" dir="rtl">
+                    <tr>
+                        <td>
+                            <span>
+                                إسم المريض :
+                            </span>
+
+                        </td>
+                        <td>
+                            <span t-field="doc.partner_id.name"/>
+                        </td>
+                        <td>
+                            <span>
+                                التوقيع :
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                --------------------------
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>
+                                الرقم القومى :
+                            </span>
+                        </td>
+                        <td colspan="3">
+                            <span t-field="doc.partner_id.vat"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>
+                                ضامن المريض :
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                --------------------------
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                التوقيع :
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                --------------------------
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>
+                                صفته :
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                --------------------------
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                الرقم القومى :
+                            </span>
+                        </td>
+                        <td>
+                            <span>
+                                --------------------------
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+            </t>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="stock_form_inherit_add" model="ir.ui.view">
+            <field name="name">add.form.add.stock.field</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='origin']" position="after">
+                    <field name="doctor_sale_order"/>
+                    <field name="payment_term_id"/>
+                    <field name="nurse"/>
+                    <field name="nurse_assistant"/>
+                    <field name="e_device"/>
+                </xpath>
+
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

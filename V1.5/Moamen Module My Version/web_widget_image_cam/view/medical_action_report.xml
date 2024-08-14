@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright 2018-2019 ForgeFlow, S.L.
+     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl-3.0) -->
+<odoo>
+    <record id="paperformat_a4_custom_report" model="report.paperformat">
+        <field name="name">custom</field>
+        <field name="default" eval="True"/>
+        <field name="format">A4</field>
+        <field name="page_height">0</field>
+        <field name="page_width">0</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">30</field>
+        <field name="margin_bottom">25</field>
+        <field name="margin_left">30</field>
+        <field name="margin_right">7</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">25</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="action_report_medical_endoscope" model="ir.actions.report">
+        <field name="name">EndoScope Report</field>
+        <!-- Assuming 'medical.endoscopes' model is defined in the 'web_widget_image_cam' module -->
+        <field name="binding_model_id" ref="web_widget_image_cam.model_medical_endoscopes"/>
+        <field name="model">medical.endoscopes</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">web_widget_image_cam.report_medical_endoscope</field>
+        <field name="report_file">web_widget_image_cam.report_medical_endoscope</field>
+        <field name="print_report_name">'Patient Number %s' % (object.name).replace('/', '')</field>
+        <field name="paperformat_id" ref="web_widget_image_cam.paperformat_a4_custom_report"/>
+
+    </record>
+    <record id="action_report_medical_endoscope_photo" model="ir.actions.report">
+        <field name="name">EndoScope Photo</field>
+        <field name="binding_model_id" ref="web_widget_image_cam.model_medical_endoscopes"/>
+        <field name="model">medical.endoscopes</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">web_widget_image_cam.photo_report_medical_endoscope</field>
+        <field name="report_file">web_widget_image_cam.photo_report_medical_endoscope</field>
+        <field name="print_report_name">'Patient name %s' % (object.patient_id.name).replace('/', '')</field>
+        <field name="paperformat_id" ref="web_widget_image_cam.paperformat_a4_custom_report"/>
+
+    </record>
+</odoo>

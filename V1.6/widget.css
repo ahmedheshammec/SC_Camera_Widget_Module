@@ -1,0 +1,40 @@
+
+
+.webcam_img img {
+    max-width: 320px;
+    max-height: 240px;
+}
+
+.live_cam_img {
+    width: 320px;
+    height: 240px;
+}
+
+.direction_icon {
+    text-align: center;
+}
+
+.o_field_widget.o_field_image .o_form_image_controls > .fa {
+    padding: 3px;
+    margin: 3px;
+}
+
+
+.captured-images-container {
+    display: grid; /* Use grid layout as previously suggested */
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 10px; /* Space between images */
+    margin-top: 10px; /* Space above the container */
+    width: 100%; /* Container width */
+    max-height: 200px; /* Set a fixed height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional: Add a border */
+    padding: 10px; /* Optional: Add padding */
+}
+
+.captured-image {
+    width: 100%; /* Take full width of the grid column */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #ccc; /* Optional: Add a border */
+    border-radius: 5px; /* Optional: Rounded corners */
+}

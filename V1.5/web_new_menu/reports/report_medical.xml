@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <template id="report_medical_endoscope">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web_new_menu.external_layout_standard_custom">
+
+                    <t t-set="company" t-value="env.company"/>
+
+                    <div class="page">
+                        <div class="row">
+                            <div class="col-8">
+                                <h2 style="color: red;">
+                                    <span t-field="o.process_name_display"/>
+                                    <!--                                    <span t-field="o.name"/>-->
+                                </h2>
+                                <table class="table table-sm o_main_table">
+                                    <tr>
+                                        <td class="text-center">Patient Name</td>
+                                        <td class="text-center">
+                                            <span t-field="o.patient_id"/>
+                                        </td>
+
+                                        <td class="text-center">ID :</td>
+                                        <td name="td_partner_id.name" class="text-center">
+                                            <span t-field="o.id_patient"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">Endoscopist :</td>
+                                        <td class="text-center">
+                                            <span t-field="o.doctor_id"/>
+                                        </td>
+
+                                        <td class="text-center">D-O-B :</td>
+                                        <td name="td_partner_id.name" class="text-center">
+                                            <span t-field="o.birth_date"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">2nd Operator :</td>
+                                        <td class="text-center">
+                                            <span t-field="o.operator"/>
+                                        </td>
+
+                                        <td class="text-center">Age :</td>
+                                        <td name="td_partner_id.name" class="text-center">
+                                            <span t-field="o.age"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                       <!--                                        <td class="text-center">Referred By :</td>-->
+<!--                                        <td class="text-center">-->
+<!--                                            <span t-field="o.referred_by"/>-->
+<!--                                        </td>-->
+
+                                        <td class="text-center">Date :</td>
+                                        <td name="td_date" class="text-center">
+                                            <span t-esc="o.date.strftime('%d / %m / %Y')"/>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <div class="row">
+                                    <strong style="color: blue;">
+                                        INDICATION FOR EXAMINATION
+                                    </strong>
+                                    <br/>
+                                    <t t-if="o.indications">
+                                        <span t-field="o.indications"/>
+                                        <br/>
+                                    </t>
+
+                                </div>
+                                <div class="row">
+                                    <strong style="color: blue;">
+                                        PROCEDURE PERFORMED
+                                    </strong>
+                                    <br/>
+                                    <t t-if="o.procedures">
+                                        <span t-field="o.procedures"/>
+                                        <br/>
+                                    </t>
+                                </div>
+                                <div class="row">
+                                    <strong style="color: blue;">
+                                        MEDICATIONS
+                                    </strong>
+                                    <br/>
+                                    <t t-if="o.medications">
+                                        <span t-field="o.medications"/>
+                                        <br/>
+                                    </t>
+                                </div>
+                                <div class="row">
+                                    <strong style="color: blue;">
+                                        FINDINGS
+                                    </strong>
+                                    <br/>
+                                    <t t-if="o.findings">
+                                        <span t-field="o.findings"/>
+                                        <br/>
+                                    </t>
+                                </div>
+                                <div class="row">
+                                    <t t-if="o.esophagus">
+                                        <strong style="color: blue;">
+                                            Esophagus
+                                        </strong>
+                                        <br/>
+                                        <span t-field="o.esophagus"/>
+                                        <br/>
+                                    </t>
+                                </div>
+                                <div class="row">
+                                    <t t-if="o.stomach">
+                                        <strong style="color: blue;">
+                                            Stomach
+                                        </strong>
+                                        <br/>
+                                        <span t-field="o.stomach"/>
+                                        <br/>
+                                    </t>
+                                </div>
+                                <div class="row">
+                                    <t t-if="o.pylorus">
+                                        <strong style="color: blue;">
+                                            Pylorus
+                                        </strong>
+                                        <br/>
+                                        <span t-field="o.pylorus"/>
+                                        <br/>
+                                    </t>
+                                </div>
+                                <div class="row">
+                                    <t t-if="o.duodenum">
+                                        <strong style="color: blue;">
+                                            Duodenum
+                                        </strong>
+                                        <br/>
+                                        <span t-field="o.duodenum"/>
+                                        <br/>
+                                    </t>
+
+
+                                </div>
+                                <div class="row">
+                                    <t t-if="o.pancreas">
+                                        <strong style="color: blue;">
+                                            Pancreas
+                                        </strong>
+                                        <br/>
+                                        <span t-field="o.pancreas"/>
+                                        <br/>
+                                    </t>
+
+
+                                </div>
+                                <div class="row">
+                                    <t t-if="o.papilla">
+                                        <strong style="color: blue;">
+                                            Papilla
+                                        </strong>
+                                        <br/>
+                                        <span t-field="o.papilla"/>
+                                        <br/>
+                                    </t>
+
+
+                                </div>
+                                <div class="row">
+                                    <t t-if="o.colon">
+                                        <strong style="color: blue;">
+                                            Colon
+                                        </strong>
+                                        <br/>
+                                        <span t-field="o.colon"/>
+                                        <br/>
+                                    </t>
+
+
+                                </div>
+                                <div class="row">
+                                    <t t-if="o.referring">
+                                        <strong style="color: blue;">
+                                            Referring Doctor
+                                        </strong>
+                                        <br/>
+                                        <span t-field="o.referring"/>
+                                        <br/>
+                                    </t>
+
+
+                                </div>
+                                <div class="row">
+                                    <strong style="color: blue;">
+                                        CONCLUSIONS
+                                    </strong>
+                                    <br/>
+                                    <t t-if="o.conclusions">
+                                        <span t-field="o.conclusions"/>
+                                        <br/>
+                                    </t>
+
+                                </div>
+                                <div class="row">
+                                    <strong style="color: blue;">
+                                        RECOMMENDATIONS
+                                    </strong>
+                                    <br/>
+                                    <t t-if="o.recommendations">
+                                        <span t-field="o.recommendations"/>
+                                        <br/>
+                                    </t>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="text-center">
+                                        <strong>Endoscopist</strong>
+                                        <br/>
+                                        <span t-field="o.doctor_id"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <t t-foreach="range(1, 101)" t-as="num">
+                                    <t t-if="o['is_img%d' % num]">
+                                        <!-- Attempt to avoid breaking images across pages -->
+                                        <div class="row mb-2" style="page-break-inside: avoid;">
+                                            <div class="col-12 text-right">
+                                                <img t-att-src="image_data_uri(o['img%d' % num])"
+                                                     style="width: 100%; height: auto; display: block; max-height: 95vh; object-fit: contain;"/>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

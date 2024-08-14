@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <template id="photo_report_medical_endoscope">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web_new_menu.external_layout_standard_custom">
+                    <t t-set="company" t-value="env.company"/>
+                    <div class="page">
+
+                        <h2 style="color: red;">
+                            <span t-field="o.process_name_display"/>
+                        </h2>
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table table-sm o_main_table">
+                                    <tr>
+                                        <td class="text-center">Patient Name</td>
+                                        <td class="text-center">
+                                            <span t-field="o.patient_id"/>
+                                        </td>
+                                        <td class="text-center">Date :</td>
+                                        <td name="td_date" class="text-center">
+                                            <span t-esc="o.date.strftime('%d / %m / %Y')"/>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">Endoscopist :</td>
+                                        <td class="text-center">
+                                            <span t-field="o.doctor_id"/>
+                                        </td>
+
+                                        <td class="text-center">Age :</td>
+                                        <td name="td_partner_id.name" class="text-center">
+                                            <span t-field="o.age"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+
+                                        <td class="text-center">Referred By :</td>
+                                        <td class="text-center">
+                                            <span t-field="o.referred_by"/>
+                                        </td>
+
+
+                                    </tr>
+                                    <tr>
+
+
+                                    </tr>
+
+                                </table>
+                            </div>
+                        </div>
+                        <div>
+                            <t t-foreach="range(1, 101)" t-as="i">
+                                <t t-if="o['is_img%s' % i]">
+                                    <div style="display: inline-block; width: 30%; padding: 5px; margin-right: 2%; box-sizing: border-box;">
+                                        <img t-att-src="'/web/image?model=medical.endoscopes&amp;id=%d&amp;field=img%s' % (o.id, i)"
+                                             loading="lazy" class="img img-fluid" alt="Binary file" name="img%s"
+                                             style="width: 100%; height: auto;"/>
+                                    </div>
+                                </t>
+                            </t>
+                        </div>
+
+
+                        <!--                        <div class="row">-->
+                        <!--                            <div class="col-12">-->
+                        <!--                                <table class="table table-lg m-0 table-borderless border border-right-0 border-left-0 border-info">-->
+                        <!--                                    <tr>-->
+                        <!--                                        <t t-foreach="range(1, 101)" t-as="num">-->
+                        <!--                                            <t t-if="o['is_img%s' % num]">-->
+                        <!--                                                <t t-if="(num % 3) == 0">-->
+                        <!--                                                    <tr></tr>-->
+                        <!--                                                </t>-->
+
+                        <!--                                                <td style="width: 30%; padding: 5px; border: none;">-->
+                        <!--                                                    <img t-att-src="image_data_uri(o['img%s' % num])"-->
+                        <!--                                                         style="width: 100%; height: 4cm;" class="company-logo"/>-->
+                        <!--                                                </td>-->
+
+                        <!--                                            </t>-->
+                        <!--                                        </t>-->
+                        <!--                                    </tr>-->
+                        <!--                                </table>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="row">-->
+                        <!--                            <t t-foreach="range(1, 16)" t-as="num">-->
+                        <!--                                <div t-if="o['image_%d' % num]" class="col-md-4" style="margin-bottom: 20px;">-->
+                        <!--                                    <img t-att-src="image_data_uri(o['image_%d' % num])" style="max-width: 100%; height: auto;"/>-->
+                        <!--                                </div>-->
+                        <!--                                &lt;!&ndash; Break after every third image to form a new row &ndash;&gt;-->
+                        <!--                                <t t-if="(num % 3) == 0">-->
+                        <!--                                    <div class="clearfix"/>-->
+                        <!--                                </t>-->
+                        <!--                            </t>-->
+                        <!--                        </div>-->
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

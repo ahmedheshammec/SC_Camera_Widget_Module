@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<odoo>
+    <template id="photo_report_medical_endoscope">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-set="company" t-value="env.company"/>
+                    <div class="page">
+
+                        <h2 style="color: red;">
+                            <span t-field="o.process_ids.name"/>-/-
+                            <span t-field="o.name"/>
+                        </h2>
+                        <table class="table table-lg m-0 table-borderless border border-right-0 border-left-0 border-info">
+                            <tr>
+                                <t t-foreach="range(1, 101)" t-as="num">
+                                    <!-- Check if the image exists -->
+                                    <t t-if="o['is_img%s' % num]">
+                                        <!-- Insert the image into the cell -->
+                                        <td style="width: 30%; padding: 5px; border: none;">
+                                            <img t-att-src="image_data_uri(o['img%s' % num])"
+                                                 style="width: 100%; height: 4cm;" class="company-logo"/>
+                                        </td>
+                                        <!-- After every third image, close the current row and start a new one -->
+                                        <t t-if="(num % 3) == 0">
+                                            <tr></tr>
+                                        </t>
+                                    </t>
+                                </t>
+                            </tr>
+                        </table>
+                        <!--                        <div class="row">-->
+                        <!--                            <t t-foreach="range(1, 16)" t-as="num">-->
+                        <!--                                <div t-if="o['image_%d' % num]" class="col-md-4" style="margin-bottom: 20px;">-->
+                        <!--                                    <img t-att-src="image_data_uri(o['image_%d' % num])" style="max-width: 100%; height: auto;"/>-->
+                        <!--                                </div>-->
+                        <!--                                &lt;!&ndash; Break after every third image to form a new row &ndash;&gt;-->
+                        <!--                                <t t-if="(num % 3) == 0">-->
+                        <!--                                    <div class="clearfix"/>-->
+                        <!--                                </t>-->
+                        <!--                            </t>-->
+                        <!--                        </div>-->
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
+

@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+        <menuitem id="parent_accounting_menu_payment" name="Payment"
+                  action="account.action_account_payments_payable"
+                  web_icon="sales_doctor,static/description/paay.png"/>
+
+    </data>
+</odoo>

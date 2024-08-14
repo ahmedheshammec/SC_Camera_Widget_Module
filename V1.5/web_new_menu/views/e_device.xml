@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+
+        <record id="view_e_device_tree" model="ir.ui.view">
+            <field name="name">e.device.tree</field>
+            <field name="model">e.device</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_e_device_form" model="ir.ui.view">
+            <field name="name">e.device.form</field>
+            <field name="model">e.device</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                    </group>
+                    <notebook>
+                        <page string="Maintenance">
+                            <field name="device_line_ids">
+                                <tree editable="bottom">
+                                    <field name="malfunction"/>
+                                    <field name="malfunction_date"/>
+                                    <field name="malfunction_type"/>
+                                    <field name="sent_for_maintenance"/>
+                                    <field name="back_from_maintenance"/>
+                                    <field name="fixed_issues"/>
+                                    <field name="maintenance_company"/>
+                                    <field name="maintenance_cost"/>
+                                    <field name="note"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record id="e_device_action" model="ir.actions.act_window">
+            <field name="name">Electronic Devices</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">e.device</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="e_device_menu" name="Electronic Devices"
+                  action="e_device_action"
+                  parent="web_widget_image_cam.medical_endoscopes_menu"
+                  sequence="3"/>
+    </data>
+</odoo>

@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_e_device,access_e_device,model_e_device,base.group_user,1,1,1,1
+access_process_name,access_process_name,model_process_name,base.group_user,0,0,0,0
+access_e_device_line,access_e_device_line,model_e_device_line,base.group_user,1,1,1,1
